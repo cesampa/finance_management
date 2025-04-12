@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit_authenticator as stauth
 
-# ⚠️ Copiamos tudo de st.secrets para um dicionário mutável
+# Copia as configurações para um dicionário mutável
 config = {
     "credentials": {
         "usernames": {
@@ -13,7 +13,7 @@ config = {
     "preauthorized": dict(st.secrets.get("preauthorized", {}))
 }
 
-# 🔐 Inicializa autenticação com o config copiado
+# Autenticador
 authenticator = stauth.Authenticate(
     credentials=config["credentials"],
     cookie_name=config["cookie"]["name"],
@@ -22,22 +22,18 @@ authenticator = stauth.Authenticate(
     preauthorized=config["preauthorized"]
 )
 
+# Login
+name, authentication_status, username = authenticator.login("Login", "sidebar")
 
-# Tela de login na sidebar
-name, authentication_status, username = authenticator.login(
-    label="Login",
-    location="sidebar"
-)
-
-# Verifica status de autenticação
 if authentication_status is False:
     st.error("Usuário ou senha incorretos.")
 elif authentication_status is None:
-    st.warning("Por favor, faça login.")
+    st.warning("Por favor, realize o login.")
 elif authentication_status:
-    # Exibe logout e saudação
-    authenticator.logout("Sair", location="sidebar")
-    st.success(f"Bem-vindo, {name} 👋")
+    authenticator.logout("Sair", "sidebar")
+    st.success(f"Bem-vindo, {name}! ✅")
+    st.write("🔒 Área protegida do app")
+
 
     # Aqui começa seu app privado
     st.header("📋 Lançamento de Despesas")
