@@ -3,11 +3,11 @@ credentials:
     usuario1:
       name: "Carlos Sampaio"
       email: cesampa@gmail.com
-      password: '$2b$12$q1Qf9Bf8OIRi4tOB6aP.EeDcq0kg9rcMRY3FZow/PkFiQGkdx5Z1S'  # bcrypt hash
+      password: '$2b$12$WgqhmVOZyRPbMfXw.FU4uuXILywAzHeU9cgV.xyl/64e8oDs0w9fu'  # bcrypt hash
     usuario2:
       name: "Raquel Sampaio"
       email: rrasampa@gmail.com
-      password: '$2b$12$dPlcAcAV3zmbPTKDmNz8aueND2XYCuU8OsyZHBlS5Okc4z1HABYO6'
+      password: '$2b$12$WgqhmVOZyRPbMfXw.FU4uuXILywAzHeU9cgV.xyl/64e8oDs0w9fu'
 
 cookie:
   expiry_days: 30
