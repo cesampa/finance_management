@@ -1,6 +1,6 @@
 ALLOWED_USERS = [
     "cesampa@gmail.com",
-    "rrasampa   @gmail.com"
+    "rrasampa@gmail.com"
 ]
 
 DB_MODE = "sqlite"  # ou "postgres"
