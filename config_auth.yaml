@@ -1,14 +1,21 @@
 credentials:
   usernames:
     usuario1:
+      name: "Carlos Sampaio"
       email: cesampa@gmail.com
-      name: Usuario Um
-      password: '$2b$12$abcdef...'  # hash gerado com bcrypt
+      password: '$2b$12$q1Qf9Bf8OIRi4tOB6aP.EeDcq0kg9rcMRY3FZow/PkFiQGkdx5Z1S'  # bcrypt hash
     usuario2:
+      name: "Raquel Sampaio"
       email: rrasampa@gmail.com
-      name: Usuario Dois
-      password: '$2b$12$abcdef...'
+      password: '$2b$12$dPlcAcAV3zmbPTKDmNz8aueND2XYCuU8OsyZHBlS5Okc4z1HABYO6'
+
 cookie:
   expiry_days: 30
-  key: 'senha_secreta'
-  name: 'streamlit_auth'
+  key: "chave-muito-secreta"
+  name: "meu_cookie_auth"
+
+preauthorized:
+  emails:
+    - cesampa@gmail.com
+    - rrasampa@gmail.com
+
