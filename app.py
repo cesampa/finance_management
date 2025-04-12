@@ -1,17 +1,27 @@
 import streamlit as st
 import streamlit_authenticator as stauth
 
-# Carrega configurações do Streamlit Community Cloud
-config = st.secrets
+# ⚠️ Copiamos tudo de st.secrets para um dicionário mutável
+config = {
+    "credentials": {
+        "usernames": {
+            username: dict(user)
+            for username, user in st.secrets["credentials"]["usernames"].items()
+        }
+    },
+    "cookie": dict(st.secrets["cookie"]),
+    "preauthorized": dict(st.secrets.get("preauthorized", {}))
+}
 
-# Inicializa o autenticador
+# 🔐 Inicializa autenticação com o config copiado
 authenticator = stauth.Authenticate(
-    credentials=config['credentials'],
-    cookie_name=config['cookie']['name'],
-    key=config['cookie']['key'],
-    cookie_expiry_days=int(config['cookie']['expiry_days']),
-    preauthorized=config.get('preauthorized', {})
+    credentials=config["credentials"],
+    cookie_name=config["cookie"]["name"],
+    key=config["cookie"]["key"],
+    cookie_expiry_days=int(config["cookie"]["expiry_days"]),
+    preauthorized=config["preauthorized"]
 )
+
 
 # Tela de login na sidebar
 name, authentication_status, username = authenticator.login(
