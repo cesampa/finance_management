@@ -1,0 +1,14 @@
+credentials:
+  usernames:
+    usuario1:
+      email: cesampa@gmail.com
+      name: Usuario Um
+      password: '$2b$12$abcdef...'  # hash gerado com bcrypt
+    usuario2:
+      email: rrasampa@gmail.com
+      name: Usuario Dois
+      password: '$2b$12$abcdef...'
+cookie:
+  expiry_days: 30
+  key: 'senha_secreta'
+  name: 'streamlit_auth'
